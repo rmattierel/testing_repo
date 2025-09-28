@@ -13,14 +13,16 @@ struct Database {
 
 impl Database {
     fn create_dbstring(d: Database) -> String {
-      //let mut conn_string = String::from(&d.db_type);
-      let mut conn_string = String::from("Ricky");
-        // d.db_type,
+      let mut conn_string = String::from(&d.db_type);
         conn_string.push_str("://");
         conn_string.push_str(&d.username);
+        conn_string.push_str(":");
         conn_string.push_str(&d.password);
+        conn_string.push_str("@");
         conn_string.push_str(&d.db_host);
+        conn_string.push_str("/");
         conn_string.push_str(&d.db_port);
+        conn_string.push_str(":");
         conn_string.push_str(&d.db_name);
         
         println!("Checking: {}", conn_string);
